@@ -1,0 +1,11 @@
+image,region,truth,prob,prediction,correct,cam_on_fracture
+IMG0002463.jpg,hand,fracture,0.993,fracture,True,True
+IMG0004068.jpg,hand,fracture,0.899,fracture,True,True
+IMG0002537.jpg,leg,fracture,0.981,fracture,True,True
+IMG0003851.jpg,leg,fracture,0.126,normal,False,
+IMG0002408.jpg,hand,fracture,0.575,fracture,True,False
+IMG0002879.jpg,leg,normal,0.048,normal,True,
+IMG0002719.jpg,leg,normal,0.036,normal,True,
+IMG0002658.jpg,hand,normal,0.073,normal,True,
+IMG0000089.jpg,shoulder,normal,0.14,normal,True,
+IMG0003409.jpg,leg,normal,0.085,normal,True,

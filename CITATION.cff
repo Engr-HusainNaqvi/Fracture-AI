@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you refer to this work, please cite it as below."
+title: "FractureScope: Fracture Detection and Analysis on Musculoskeletal Radiographs with CNN Transfer Learning"
+authors:
+  - family-names: Naqvi
+    given-names: Husain
+version: 1.0.0
+date-released: 2026-11-09
+license: LicenseRef-All-Rights-Reserved
+repository-code: "https://github.com/Engr-HusainNaqvi/Fracture-AI"
+url: "https://engr-husainnaqvi.github.io/Fracture-AI/"
+keywords: [fracture detection, radiograph, X-ray, transfer learning, CNN, EfficientNetV2, Grad-CAM, FracAtlas, medical imaging]
+references:
+  - type: article
+    authors:
+      - family-names: Abedeen
+        given-names: Iftekharul
+    title: "FracAtlas: A Dataset for Fracture Classification, Localization and Segmentation of Musculoskeletal Radiographs"
+    journal: "Scientific Data"
+    volume: 10
+    start: 521
+    year: 2023
+    doi: 10.1038/s41597-023-02432-4
