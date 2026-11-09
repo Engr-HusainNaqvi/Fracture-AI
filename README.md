@@ -4,6 +4,8 @@
 
 An ImageNet-pretrained CNN (EfficientNetV2-B0), fine-tuned on **FracAtlas** (4,083 real musculoskeletal radiographs, 717 fractured), that flags fractures in hand, leg, hip and shoulder X-rays. Grad-CAM heatmaps show where it looked, and these are checked against the radiologists' fracture boxes. Everything is evaluated on a held-out test set that was never used for training, model selection or threshold choice.
 
+<p align="center"><img src="docs/figures/threshold_sweep.gif" width="88%" alt="Animated threshold sweep over the held-out test scores with the confusion matrix updating"></p>
+
 ## Headline results (held-out test, n = 611, 107 fractures)
 
 | Metric | Value | 95 % CI (bootstrap) |
@@ -48,6 +50,25 @@ Confusion matrix: TP 83 · FP 17 · FN 24 · TN 487. The threshold (0.40) was ch
 | Lateral view | 219 | 91.3 % | 83.0 % | 93.6 % |
 | Oblique view | 52 | 94.2 % | 40.0 % | 100 % |
 | No orthopaedic hardware | 595 | 93.3 % | 74.7 % | 96.6 % |
+
+## Visual tour
+
+Fifteen figures plus two animations. Every model result is on the held-out test set.
+
+| | |
+|---|---|
+| ![Dataset](docs/figures/01_dataset.png) **The data:** FracAtlas X-rays with radiologist boxes | ![Image statistics](docs/figures/02_image_statistics.png) **What makes it hard:** resolution, exposure, tiny fractures |
+| ![Data hygiene](docs/figures/03_data_hygiene.png) **Near-duplicate groups** never cross the split | ![Augmentation](docs/figures/04_augmentation.png) **Augmentation** and progressive resizing |
+| ![Training](docs/figures/05_training.png) **Training** on a laptop CPU, phase by phase | ![ROC/PR](docs/figures/06_roc_pr.png) **ROC and PR** with bootstrap bands, threshold sweep |
+| ![Confusion](docs/figures/07_confusion.png) **Errors in context:** score distributions per region | ![Calibration](docs/figures/08_calibration.png) **Calibration** and decision-curve analysis |
+| ![Subgroups](docs/figures/09_subgroups.png) **Subgroup forest plot** with 95 % CIs | ![Localisation](docs/figures/11_localisation.png) **Does Grad-CAM point at the fracture?** |
+| ![Explanations](docs/figures/12_explanations.png) **Grad-CAM vs. integrated gradients vs. occlusion** | ![Uncertainty](docs/figures/13_uncertainty.png) **MC-dropout uncertainty** and selective triage |
+| ![Embeddings](docs/figures/14_embeddings.png) **Feature space:** t-SNE and PCA of the embeddings | ![Filters](docs/figures/15_filters.png) **Inside the network:** stem filters and feature maps |
+
+![Grad-CAM by outcome](docs/figures/10_gradcam_gallery.png)
+**Grad-CAM by outcome:** hits, misses, false alarms and correct rejections on the test set.
+
+<p align="center"><img src="docs/figures/training_evolution.gif" width="70%" alt="Training curves drawn epoch by epoch"></p>
 
 ## Method
 
